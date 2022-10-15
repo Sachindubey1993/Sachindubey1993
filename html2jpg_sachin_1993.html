@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Sachin Dubey
+	</title>
+	
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+	</script>
+	
+	<script src="assets/js/html2canvas.js">
+	</script>
+	<style type="text/css">
+		table
+		{
+			width: 100%;
+		}
+		th, td
+		{
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+	
+	<div id="html-content-holder" style="background-color: #FFFFFF;
+				color: #000000; padding-left: 25px;
+				padding-top: 10px;">
+
+<table border="1">
+	<tr><th>Name :</th><td>Sachin Dubey</td></tr>
+	<tr><th>Father's Name :</th><td>Prem Shanker Dubey</td></tr>
+	<tr><th>Mother's Name :</th><td>Rekha Dubey</td></tr>
+	<tr><th>Date & Time of Birth :</th><td>4th October 1993 / 11:35 A.M.</td></tr>
+	<tr><th>Birth Place / Native Place :</th><td>Pratapgarh (U.P.)</td></tr>
+	<tr><th>Height :</th><td>167 cms</td></tr>
+	<tr><th>Complexion :</th><td>Wheatish</td></tr>
+	<tr><th>Caste / Religion :</th><td>Saryupareen Brahmin ( Sarrar Dubey ) Gotra : Bhardwaj</td></tr>
+	<tr><th>Hobbies :</th><td>Watch Movies, Internet Surfing, Programming</td></tr>
+	<tr><th>Permanent Address :</th><td>Pratapgarh (U.P.)</td></tr>
+	<tr><th rowspan="4">Members of Family :</th><td>Father - Prem SHanker Dubey ( Self Employed )</td></tr>
+	<tr><td>Mother - Rekha Dubey ( Housewife )</td></tr>
+	<tr><td>Brother - Ankit Dubey ( Chemical Engineer ) ( Married )</td></tr>
+	<tr><td>Sister-in-Law ( Brother's Wife ) - Seema Dubey ( Post Graduate Housewife)</td></tr>
+	<tr><th rowspan="4">Academic Qualifications :</th><td>MCA Equivalent ( Doeacc B Level ) ( NIELIT )</td></tr>
+	<tr><td>B.A.</td></tr>
+	<tr><td>BCA Equivalent ( Doeacc O Level and Doeacc A Level ) ( NIELIT )</td></tr>
+	<tr><td>10th & 12th (C.B.S.E. Board)</td></tr>
+	<tr><th rowspan="2">Experience :</th><td>Total of 6.5 years experience ( 4.5 years in web development )</td></tr>
+	<tr><td>Currently Working in Bamko India Pvt. Ltd. ( Dehradun ) as PHP Developer from 28th January 2021 to till date</td></tr>
+	<tr><th>Contact Number :</th><td>9873368816 ( Father ) </td></tr>
+	<tr><th>Current Address :</th><td>Nangloi, New Delhi ( Parents ) / Dehradun ( Self ) </td></tr>
+	<tr><th>Profile Link :</th><td><a href="http://sachindubey.ga">http://sachindubey.ga</a></td></tr>
+</table>
+	</div>
+
+	<input id="btn-Preview-Image" type="button"
+				value="Preview" />
+		
+	<a id="btn-Convert-Html2Image" href="#">
+		Download
+	</a>
+
+	<br/>
+	
+	<h3>Preview :</h3>
+	
+	<div id="previewImage"></div>
+	
+	<script>
+		$(document).ready(function() {
+		
+			// Global variable
+			var element = $("#html-content-holder");
+		
+			// Global variable
+			var getCanvas;
+
+			$("#btn-Preview-Image").on('click', function() {
+				html2canvas(element, {
+					onrendered: function(canvas) {
+						$("#previewImage").append(canvas);
+						getCanvas = canvas;
+					}
+				});
+			});
+
+			$("#btn-Convert-Html2Image").on('click', function() {
+				var imgageData =
+					getCanvas.toDataURL("image/png");
+			
+				// Now browser starts downloading
+				// it instead of just showing it
+				var newData = imgageData.replace(
+				/^data:image\/png/, "data:application/octet-stream");
+			
+				$("#btn-Convert-Html2Image").attr(
+				"download", "sachindubey1993.jpg").attr(
+				"href", newData);
+			});
+		});
+	</script>
+	</center>
+</body>
+
+</html>
